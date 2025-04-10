@@ -5,62 +5,67 @@ namespace SpecFlowProject.PageObjects
 {
     public class LoginPage : BasePage
     {
+        private readonly IWebDriver _driver;
+
+        public LoginPage(IWebDriver driver) : base(driver)
+        {
+            _driver = driver;
+        }
+
         #region WebElements
 
-        private IWebElement UsernameField => Driver.FindElement(By.Id("userName"));
+        private IWebElement UsernameField => _driver.FindElement(By.Id("userName"));
 
-        private IWebElement FirstnameField => Driver.FindElement(By.Id("firstname"));
+        private IWebElement FirstnameField => _driver.FindElement(By.Id("firstname"));
 
-        private IWebElement LastnameField => Driver.FindElement(By.Id("lastname"));
+        private IWebElement LastnameField => _driver.FindElement(By.Id("lastname"));
 
-        //private IWebElement RecaptchaCheckBox => Driver.FindElement(By.XPath("//*[@id=\"recaptcha-anchor\"]/div[2]"));
+        private IWebElement RegisterButton => _driver.FindElement(By.Id("register"));
 
-        private IWebElement RegisterButton => Driver.FindElement(By.Id("register"));
+        private IWebElement PasswordField => _driver.FindElement(By.Id("password"));
 
-        private IWebElement PasswordField => Driver.FindElement(By.Id("password"));
+        private IWebElement ErrorMessage => _driver.FindElement(By.Id("name"));
 
-        private IWebElement ErrorMessage => Driver.FindElement(By.Id("name"));
+        private IWebElement LoginButton => _driver.FindElement(By.Id("login"));
 
-        private IWebElement LoginButton => Driver.FindElement(By.Id("login"));
+        private IWebElement NewUserButton => _driver.FindElement(By.Id("newUser"));
 
-        private IWebElement NewUserButton => Driver.FindElement(By.Id("newUser"));
-
-        private IWebElement BackToLoginButton => Driver.FindElement(By.Id("gotologin"));
+        private IWebElement BackToLoginButton => _driver.FindElement(By.Id("gotologin"));
 
         #endregion
 
         public void NewUser(string firstname, string lastname, string username, string password)
         {
-            FirstnameField.SendKeys(firstname);
-            LastnameField.SendKeys(lastname);
-            UsernameField.SendKeys(username);
-            PasswordField.SendKeys(password);
+            WaitElement(FirstnameField).SendKeys(firstname);
+            WaitElement(LastnameField).SendKeys(lastname);
+            WaitElement(UsernameField).SendKeys(username);
+            WaitElement(PasswordField).SendKeys(password);
 
-            IWebElement recaptchaFrame = Driver.FindElement(By.XPath("//iframe[@title='reCAPTCHA']"));
-            Driver.SwitchTo().Frame(recaptchaFrame);
-            IWebElement recaptchaCheckbox = Driver.FindElement(By.Id("recaptcha-anchor"));
+            IWebElement recaptchaFrame = _driver.FindElement(By.XPath("//iframe[@title='reCAPTCHA']"));
+            _driver.SwitchTo().Frame(recaptchaFrame);
+            IWebElement recaptchaCheckbox = _driver.FindElement(By.Id("recaptcha-anchor"));
             recaptchaCheckbox.Click();
-            Driver.SwitchTo().DefaultContent();
+            _driver.SwitchTo().DefaultContent();
 
             RegisterButton.Click();
         }
 
         public void FillNewUserData(string firstname, string lastname, string username, string password)
         {
-            FirstnameField.SendKeys(firstname);
-            LastnameField.SendKeys(lastname);
-            UsernameField.SendKeys(username);
-            PasswordField.SendKeys(password);
+            WaitElement(FirstnameField).SendKeys(firstname);
+            WaitElement(LastnameField).SendKeys(lastname);
+            WaitElement(UsernameField).SendKeys(username);
+            WaitElement(PasswordField).SendKeys(password);
         }
 
         public void EnterUsername(string username)
         {
-            UsernameField.SendKeys(username);
+            WaitElement(UsernameField).SendKeys(username);
         }
 
         public void EnterPassword(string password)
         {
-            PasswordField.SendKeys(password);
+            WaitElement(PasswordField).SendKeys(password);
         }
 
         public void VerifyMessage(string message)
@@ -84,59 +89,59 @@ namespace SpecFlowProject.PageObjects
 
         public void VerifyRequiredFields()
         {
-            VerifyRequiredFields(UsernameField, PasswordField);
+            VerifyRequiredFields(WaitElement(UsernameField), WaitElement(PasswordField));
         }
 
         public void VerifyUserNameRequiredField()
         {
-            VerifyRequiredFields(UsernameField);
+            VerifyRequiredFields(WaitElement(UsernameField));
         }
 
         public void VerifyPasswordRequiredField()
         {
-            VerifyRequiredFields(PasswordField);
+            VerifyRequiredFields(WaitElement(PasswordField));
         }
 
 
         public void ClickLoginButton()
         {
-            LoginButton.Click();
+            WaitElement(LoginButton).Click();
         }
 
         public void ClickRecaptchaCheckBox()
         {
 
-            IWebElement recaptchaFrame = Driver.FindElement(By.XPath("//iframe[@title='reCAPTCHA']"));
-            Driver.SwitchTo().Frame(recaptchaFrame);
-            IWebElement recaptchaCheckbox = Driver.FindElement(By.Id("recaptcha-anchor"));
+            IWebElement recaptchaFrame = _driver.FindElement(By.XPath("//iframe[@title='reCAPTCHA']"));
+            _driver.SwitchTo().Frame(recaptchaFrame);
+            IWebElement recaptchaCheckbox = _driver.FindElement(By.Id("recaptcha-anchor"));
             recaptchaCheckbox.Click();
-            Driver.SwitchTo().DefaultContent();
+            _driver.SwitchTo().DefaultContent();
 
         }
 
         public void ClickRegisterButton()
         {
-            RegisterButton.Click();
+            WaitElement(RegisterButton).Click();
         }
 
         public void ClickNewUserButton()
         {
-            NewUserButton.Click();
+            WaitElement(NewUserButton).Click();
         }
 
         public void ClickBackToLoginButton()
         {
-            BackToLoginButton.Click();
+            WaitElement(BackToLoginButton).Click();
         }
 
         public bool IsWelcomeMessageDisplayed()
         {
-            return Driver.FindElement(By.Id("welcomeMessage")).Displayed;
+            return _driver.FindElement(By.Id("welcomeMessage")).Displayed;
         }
 
         public bool IsDashboardUrl()
         {
-            return Driver.Url.Contains("dashboard");
+            return _driver.Url.Contains("dashboard");
         }
     }
 }

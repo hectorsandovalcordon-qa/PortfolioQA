@@ -1,22 +1,27 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace SpecFlowProject.PageObjects
 {
     public class BasePage
     {
-        protected readonly IWebDriver Driver;
+        protected readonly IWebDriver _driver;
 
         private const string _baseUrl = "https://demoqa.com/";
 
-        public BasePage()
+        public BasePage(IWebDriver driver)
         {
-            Driver = new ChromeDriver();
-            Driver.Manage().Window.Maximize();
+            _driver = driver;
         }
         public void Open(string parameter)
         {
-            Driver.Navigate().GoToUrlAsync(_baseUrl + parameter);
+            _driver.Navigate().GoToUrlAsync(_baseUrl + parameter);
+        }
+
+        public IWebElement WaitElement(IWebElement element)
+        {
+            WebDriverWait wait = new(_driver, TimeSpan.FromSeconds(10));
+            return wait.Until(x => element);
         }
     }
 }
