@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using OpenQA.Selenium;
 
 namespace SpecFlowProject.PageObjects
@@ -70,13 +71,13 @@ namespace SpecFlowProject.PageObjects
 
         public void VerifyMessage(string message)
         {
-            Assert.IsTrue(ErrorMessage.Text.Equals(message));
+            ClassicAssert.IsTrue(ErrorMessage.Text.Equals(message));
         }
 
 
         public void VerifyRequiredField(IWebElement field)
         {
-            Assert.IsTrue(field.GetAttribute("class").Contains("is-invalid"));
+            ClassicAssert.IsTrue(field.GetAttribute("class").Contains("is-invalid"));
         }
 
         public void VerifyRequiredFields(params IWebElement[] fields)
