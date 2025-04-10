@@ -1,7 +1,3 @@
-¡Claro, Héctor! Aquí tienes un README adaptado para tu portafolio de pruebas automatizadas:
-
----
-
 # 🏆 Portafolio QA - Héctor Sandoval
 
 Bienvenido a mi portafolio de pruebas automatizadas. Este repositorio contiene varios proyectos desarrollados para demostrar mi experiencia con diferentes herramientas de testing a lo largo de los años.
@@ -127,7 +123,3 @@ Si tienes alguna sugerencia o quieres contribuir, ¡siéntete libre de hacer un 
 📧 Contacto: hector.sandoval@example.com 🔗 LinkedIn: Héctor Sandoval
 
 ¡Gracias por visitar mi repositorio! 🚀
-
----
-
-Espero que esto te sea útil, Héctor. ¿Hay algo más que te gustaría agregar o modificar?
