@@ -1,0 +1,31 @@
+name: Run SpecFlow Tests
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build project
+        run: dotnet build --configuration Release
+
+      - name: Run SpecFlow Tests
+        uses: actions/cryptic-wizard/run-specflow-tests@v1.3.3
+        with:
+          test-assembly-path: SpecflowProject/bin/Release/net6.0
+          test-assembly-dll: SpecflowProject.dll
+          output-html: MyTestResults.html
