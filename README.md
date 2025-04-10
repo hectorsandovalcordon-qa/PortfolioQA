@@ -5,7 +5,6 @@ Bienvenido a mi portafolio de pruebas automatizadas. Este repositorio contiene v
 ## 📚 Contenido
 - 🛠️ Tecnologías Utilizadas
 - 📂 Estructura del Proyecto
-- 📊 Resumen de Resultados
 - 🏆 Contribuciones y Contacto
 
 ## 🛠️ Tecnologías Utilizadas
@@ -36,21 +35,6 @@ Bienvenido a mi portafolio de pruebas automatizadas. Este repositorio contiene v
 │   ├── AssemblyInfo.cs
 │   ├── ImplicitUsings.cs
 └── README.md
-```
-
-## 📊 Resumen de Resultados
-A continuación se presenta el resumen generado automáticamente por Cypress al ejecutar las pruebas en modo headless (`npx cypress run`):
-
-```plaintext
- (Run Finished)
-      Spec                                              Tests  Passing  Failing  Pending  Skipped  
- ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
- │ ✔  login.cy.js                              00:05        1        1        -        -        - │
- ├────────────────────────────────────────────────────────────────────────────────────────────────┤
- │ ✔  purchase.cy.js                           00:04        1        1        -        -        - │
- └────────────────────────────────────────────────────────────────────────────────────────────────┘
-   ✔  All specs passed!                        00:09        2        2        -        -        -  
-   Todas las pruebas fueron exitosas ✅
 ```
 
 ## 🏆 Contribuciones y Contacto
