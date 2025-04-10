@@ -1,4 +1,4 @@
-# 🏆 Portafolio QA - Héctor Sandoval
+# 💻 Portafolio QA
 
 Bienvenido a mi portafolio de pruebas automatizadas. Este repositorio contiene varios proyectos desarrollados para demostrar la experiencia adquirida con diferentes herramientas de testing a lo largo de estos años.
 
