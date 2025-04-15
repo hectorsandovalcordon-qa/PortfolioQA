@@ -7,6 +7,7 @@ namespace SpecFlowProject.Support
     [Binding]
     public class Hooks
     {
+        //
         private readonly IObjectContainer _objectContainer;
         private IWebDriver _driver;
         private BrowserDriver _browserDriver;
