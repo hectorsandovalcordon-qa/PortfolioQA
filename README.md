@@ -41,5 +41,3 @@ Bienvenido a mi portafolio de pruebas automatizadas. Este repositorio contiene v
 Si tienes alguna sugerencia o quieres contribuir, ¡siéntete libre de hacer un fork y enviar un pull request!
 
 📧 Contacto: hectorsandovalcordon@gmail.com 🔗 LinkedIn: [Héctor Sandoval](https://www.linkedin.com/in/hectorsandovalcordon/)
-
-¡Gracias por visitar mi repositorio! 🚀
